@@ -1,17 +1,18 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main {
+public class FirstTask {
     public static void main(String[] args) {
         int numberToGuess = new Random().nextInt(100);
         int i = 0;
+        int maxTries = 5;
         do {
             i++;
             int userNumber = getUserNumber();
-            int countTriesToEnd = 5 - i;
+            int countTriesToEnd = maxTries - i;
             checkNumber(numberToGuess, userNumber, countTriesToEnd);
-            infoAfterLoop(numberToGuess, i);
-        } while (i < 5);
+            infoAfterLoop(numberToGuess, i, maxTries);
+        } while (i < maxTries);
     }
 
     private static void checkNumber(int numberToGuess, int userNumber, int countTriesToEnd) {
@@ -24,8 +25,8 @@ public class Main {
         }
     }
 
-    private static void infoAfterLoop(int numberToGuess, int i) {
-        if (i < 5) {
+    private static void infoAfterLoop(int numberToGuess, int i, int maxTries) {
+        if (i < maxTries) {
             System.out.println("Please try again");
         } else
             System.out.println("Sorry You didn't guess the number, the answer was: " + numberToGuess);
