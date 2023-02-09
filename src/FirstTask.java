@@ -6,13 +6,14 @@ public class FirstTask {
         int numberToGuess = new Random().nextInt(100);
         int i = 0;
         int maxTries = 5;
+        int userNumber;
         do {
             i++;
-            int userNumber = getUserNumber();
+            userNumber = getUserNumber();
             int countTriesToEnd = maxTries - i;
             checkNumber(numberToGuess, userNumber, countTriesToEnd);
-            infoAfterLoop(numberToGuess, i, maxTries);
-        } while (i < maxTries);
+            infoAfterLoop(numberToGuess, i, maxTries, userNumber);
+        } while (i < maxTries && numberToGuess != userNumber);
     }
 
     private static void checkNumber(int numberToGuess, int userNumber, int countTriesToEnd) {
@@ -25,11 +26,12 @@ public class FirstTask {
         }
     }
 
-    private static void infoAfterLoop(int numberToGuess, int i, int maxTries) {
-        if (i < maxTries) {
+    private static void infoAfterLoop(int numberToGuess, int i, int maxTries, int userNumber) {
+        if (i < maxTries && numberToGuess != userNumber) {
             System.out.println("Please try again");
-        } else
+        } else if (i == maxTries) {
             System.out.println("Sorry You didn't guess the number, the answer was: " + numberToGuess);
+        }
     }
 
     private static int getUserNumber() {
