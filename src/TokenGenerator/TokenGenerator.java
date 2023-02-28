@@ -1,4 +1,4 @@
-package FirstWeek;
+package TokenGenerator;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;

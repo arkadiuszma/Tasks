@@ -1,4 +1,4 @@
-package FirstWeek;
+package NumberChoosingGame;
 
 import java.util.InputMismatchException;
 import java.util.Random;
